@@ -19,7 +19,7 @@ resource "aws_s3_bucket" "uk_gov_dvsa_recalls_dev_datasource_accesslogs" {
 
 # - be available per environment with name uk.gov.dvsa.recalls.${env}.datasource
 resource "aws_s3_bucket" "uk_gov_dvsa_recalls_dev_datasource" {
-  bucket  = "uk.gov.dvsa.recalls.dev.datasource"
+  bucket  = "uk-gov-dvsa-recalls-dev-datasource"
   region  = "eu-west-1"
   acl     = "private"
 
@@ -61,3 +61,10 @@ resource "aws_s3_bucket" "uk_gov_dvsa_recalls_dev_datasource" {
     mfa_delete  = false
   }
 }
+
+# In this instance, the data is the uploaded CSV file
+# data "aws_s3_bucket_object" "dvsa-recalls-dataset" {
+#   bucket = "${aws_s3_bucket.uk_gov_dvsa_recalls_dev_datasource.id}"
+#   key    = "assets/RecallsFile.csv"
+#   # defaults to latest version
+# }
