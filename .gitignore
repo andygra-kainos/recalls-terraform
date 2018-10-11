@@ -7,3 +7,6 @@
 
 # .tfvars files
 *.tfvars
+
+# prevent access credential exposure during development
+tf_provider.tf
